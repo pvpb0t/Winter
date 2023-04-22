@@ -15,9 +15,18 @@ Some features is broken at this state of development since it hasnt been maintai
 
 We're releasing Winter because, over time, sqlskid and I have shifted our focus to other projects. As a result, we're no longer actively maintaining this client.
 
-## Download
+### Installation
 
-Get the latest Winter jar [here](https://github.com/pvpb0t/Winter/releases/download/1.0.1/winter-1.0.1-release.jar).
+To install the Winter forge mod, follow these concise steps:
+
+1. **Forge**: Ensure that you have [Minecraft Forge](https://files.minecraftforge.net/) installed.
+2. **Download**: Download the Winter build [here](https://github.com/pvpb0t/Winter/releases/download/1.0.1/winter-1.0.1-release.jar).
+3. **Mods folder**: Locate your Minecraft 'mods' folder:
+   - Windows: `%APPDATA%\.minecraft\mods`
+   - macOS: `~/Library/Application Support/minecraft/mods`
+   - Linux: `~/.minecraft/mods`
+4. **Install**: Place the downloaded Winter jar file into the 'mods' folder.
+5. **Launch**: Start Minecraft with the Forge profile, and Winter will be loaded automatically.
 
 ## Build Instructions
 
