@@ -1,8 +1,5 @@
 # Winter ❄️ - Anarchy Forge Mod
 
-![Winter Logo](path/to/logo/image)
-*Logo created by [SpeedyRogue04](https://github.com/SpeedyRogue04)*
-
 ![Winter GUI](path/to/gui/image)
 *Winter GUI showcasing the available modules*
 
@@ -45,4 +42,4 @@ Our Winter client has served as a foundation for other projects, such as the pri
 
 - [sqlskid](https://github.com/sqlskid) - Developer
 - [virtualbox](https://github.com/sqlskid) - Developer
-- [SpeedyRogue04](https://github.com/SpeedyRogue04) - Logo Designer
+- [popbobik](https://github.com/2u9) - Cool guy
