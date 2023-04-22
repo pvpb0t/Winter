@@ -17,7 +17,7 @@ We're releasing Winter because, over time, sqlskid and I have shifted our focus 
 
 ## Download
 
-Get the latest Winter jar [here](path/to/download/jar).
+Get the latest Winter jar [here](https://github.com/pvpb0t/Winter/releases/download/1.0.1/winter-1.0.1-release.jar).
 
 ## Build Instructions
 
