@@ -8,7 +8,11 @@
 
 ## About
 
-Winter is an anarchy forge mod that serves as a utility client, designed to enhance your Minecraft experience. 
+Winter is an unfinished anarchy forge mod that serves as a utility client, designed to enhance your Minecraft experience. 
+
+## Disclamer
+
+Some features is broken at this state of development since it hasnt been maintained for over 8 months so feel free to contribute/use the client as base for your own
 
 ## Why?
 
