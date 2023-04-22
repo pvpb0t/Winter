@@ -1,6 +1,6 @@
 # Winter ❄️ - Anarchy Forge Mod
 
-![Winter GUI](path/to/gui/image)
+![Winter GUI](assets/gui.png)
 *Winter GUI showcasing the available modules*
 
 ## About
