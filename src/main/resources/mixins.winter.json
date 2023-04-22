@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "cc.winterclient.client.injection.mixins",
+  "refmap": "mixins.winter.refmap.json",
+  "mixins": [
+    "MixinEntityPlayerSP",
+    "MixinMinecraft",
+    "MixinNetworkManager",
+    "MixinRenderLivingBase",
+    "MixinEntityRenderer",
+    "MixinWorld",
+    "MixinItemBow",
+    "MixinEntity"
+  ]
+}

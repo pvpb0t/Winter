@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "winter",
+    "name": "Winter",
+    "description": "Minecraft 1.12.2 utility mod for anarchy servers",
+    "version": "b1",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "pvpb0t",
+      "sqlskid"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

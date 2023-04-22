@@ -1,0 +1,131 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net/' }
+        maven { url = 'https://repo.spongepowered.org/maven/' }
+    }
+    dependencies {
+        classpath "net.minecraftforge.gradle:ForgeGradle:4.+"
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: "net.minecraftforge.gradle"
+
+apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+version mod_version
+group mod_base_package
+
+compileJava { sourceCompatibility = targetCompatibility = '1.8' }
+
+sourceSets {
+    main.java.srcDirs = ["src/main/java"]
+    main.resources.srcDirs = ["src/main/resources"]
+}
+
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+minecraft {
+    //Mappings & Version
+    mappings channel: 'stable', version: '39-1.12'
+    //Access Transformer
+    accessTransformer = file('src/main/resources/client_at.cfg')
+    //IDE Debugging
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'mixin.debug.export', 'true'
+            property "mixin.hotSwap", "true"
+            property 'fml.coreMods.load', "cc.winterclient.client.injection.InjectionLoader"
+            property 'mixin.env.disableRefMap', 'true' //Disable RefMap because baritone
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+repositories {
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+    maven { url = 'https://impactdevelopment.github.io/maven/' }
+    maven { url = "https://maven-eclipse.github.io/maven" }
+    maven { url = "https://jitpack.io/" }
+    maven { url = "http://jcenter.bintray.com/" }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    //Minecraft Dependency very important
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2859'
+    //Mixin Dep
+    compile('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
+        exclude module: 'launchwrapper'
+        exclude module: 'guava'
+        exclude module: 'gson'
+        exclude module: 'commons-io'
+    }
+    //Mixin Annotation Processor
+    annotationProcessor('org.spongepowered:mixin:0.8.2:processor') { exclude module: 'gson' }
+
+    /* New Dependencies start here (avoid changing the dependencies above) */
+    compile 'net.jodah:typetools:0.8.3' // TypeTools
+    compile 'club.minnced:java-discord-rpc:2.0.2' // Discord RPC
+    compile 'com.googlecode.json-simple:json-simple:1.1.1' //JsonSimple
+}
+
+processResources {
+    inputs.property 'version', project.mod_version
+    inputs.property 'mcversion', project.minecraft_version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.mod_version, 'mcversion': project.minecraft_version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+    rename '(.+_at.cfg)', 'META-INF/$1'
+}
+
+mixin {
+    defaultObfuscationEnv 'searge'
+    add sourceSets.main, 'mixins.winter.refmap.json'
+}
+
+reobf { shadowJar { classpath = sourceSets.main.compileClasspath } }
+
+shadowJar {
+    dependencies {
+        include(dependency('net.jodah:typetools:0.8.3'))
+        include(dependency('org.spongepowered:mixin'))
+        include(dependency('club.minnced:java-discord-rpc'))
+        include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
+    }
+    exclude 'dummyThing'
+    exclude 'LICENSE.txt'
+    exclude 'LICENSE'
+    classifier = 'release'
+}
+
+jar {
+    manifest {
+        attributes(
+                'MixinConfigs': 'mixins.winter.json',
+                'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+                'TweakOrder': 0,
+                'FMLCorePluginContainsFMLMod': 'true',
+                'FMLCorePlugin': 'cc.winterclient.client.injection.InjectionLoader',
+                'ForceLoadAsMod': 'true',
+                'FMLAT': 'client_at.cfg'
+        )
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+build.dependsOn(shadowJar)
