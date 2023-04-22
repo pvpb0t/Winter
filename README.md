@@ -8,7 +8,11 @@
 
 ## About
 
-Winter is an anarchy forge mod that serves as a utility client, designed to enhance your Minecraft experience. The project is now publicly available due to being old and not maintained anymore. Both [sqlskid](https://github.com/sqlskid) and [virtualbox](https://github.com/sqlskid) have moved on to other projects, but we wanted to share our work with the community.
+Winter is an anarchy forge mod that serves as a utility client, designed to enhance your Minecraft experience. 
+
+## Why?
+
+We're releasing Winter because, over time, sqlskid and I have shifted our focus to other projects. As a result, we're no longer actively maintaining this client.
 
 ## Download
 
@@ -29,6 +33,9 @@ For Unix users:
 ./gradlew build
 ```
 
+## Further Development
+
+Our Winter client has served as a foundation for other projects, such as the private and actively maintained client Demonware. Developed by [PotatoSUS](https://github.com/PotatoSUS) and [JohnShiozo](https://github.com/JohnShiozo), Demonware leverages the core features of Winter while adding their own unique enhancements and improvements.
 
 ## Credits
 
