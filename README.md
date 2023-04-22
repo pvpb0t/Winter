@@ -49,6 +49,6 @@ Our Winter client has served as a foundation for other projects, such as the pri
 
 ## Credits
 
-- [sqlskid](https://github.com/sqlskid) - Developer
+-  Me - Developer
 - [virtualbox](https://github.com/sqlskid) - Developer
 - [popbobik](https://github.com/2u9) - Cool guy
