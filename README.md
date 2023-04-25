@@ -3,6 +3,8 @@
 ![Winter GUI](assets/gui.png)
 *Winter GUI showcasing the available modules*
 
+![Repo views](https://visitor-badge.glitch.me/badge?page_id=pvpb0t.Winter)
+
 ## About
 
 Winter is an old unfinished anarchy forge mod that serves as a utility client, designed to enhance your Minecraft experience. 
